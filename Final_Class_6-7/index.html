@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Final Together 2</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/deliveryForm.js"></script>
+    <script src="js/pizzaOrder.js"></script>
+    <script src="js/cardForm.js"></script>
+</head>
+<body>
+   <header></header>
+    <form action="" id="deliveryOrderForm">
+        <h2>Delivery Info</h2>
+        <input type="text" id="nameOrder" placeholder="Name (First, Last)">
+
+        <select name="addressType" id="addressType">
+            <option value="" id="selectAddressOption">Select An Option</option>
+            <option value="House" id="houseOption">House</option>
+            <option value="Apartment" id="aptOption">Apartment</option>
+            <option value="Business" id="businessOption">Business</option>
+            <option value="Campus" id="campusOption">Campus</option>
+            <option value="Hotel" id="hotelOption">Hotel</option>
+            <option value="Dorm" id="dormOption">Dorm</option>
+            <option value="Other" id="otherOption">Other</option>
+        </select>
+
+        <input type="text" id="otherOptionText" placeholder="Other">
+
+        <input type="text" id="streetAddressOrder" placeholder="Street Address">
+
+        <input type="text" id="addressNumberOrder" placeholder="Apt/Suite/Room">
+
+        <input type="text" id="cityAddressOrder" placeholder="City">
+
+        <input type="text" id="stateAddressOrder" placeholder="State">
+
+        <input type="text" id="zipAddressOrder" placeholder="Zip Code">
+
+        <input type="text" id="phoneAddressOrder" placeholder="Phone Number">
+
+        <input type="text" id="emailAddressOrder" placeholder="Email">
+
+        <input type="button" value="Build Your Order" id="buildYourOrderBtn">
+    </form><br>
+    
+    
+    <form action="" id="pizzaOrderForm">
+        Choose Your Crust: <br>
+        <input type="radio" name="crust" id="handTossed"> Hand Tossed <br>
+        <select name="handTossedOptions" id="handTossedOptions"></select><br><br>
+        
+        <input type="radio" name="crust" id="thinCrust"> Thin Crust <br>
+        <select name="thinCrustOptions" id="thinCrustOptions"></select><br><br>
+        
+        <input type="radio" name="crust" id="nyStyle"> New York Style <br>
+        <select name="nyStyleOptions" id="nyStyleOptions"></select><br><br>
+        
+        <input type="radio" name="crust" id="glutenFree"> Gluten Free <br>
+        <select name="glutenFreeStyleOption" id="glutenFreeStyleOption"></select><br><br><br>
+        
+        Choose Your Cheese: <br>
+        <select name="cheeseOptions" id="cheeseOptions"></select><br><br>
+        
+        Choose Your Sauce: <br>
+        <select name="sauceOptions" id="sauceOptions"></select><br><br>
+        
+        Choose Your Toppings <br>
+        <fieldset id="toppingOptions"></fieldset>
+    </form><br>
+    
+    <section id="displayOrder">
+        <section id="totalOrder"></section>
+    </section>
+    
+    <form action="" id="billingOrderForm">
+        <h2>Delivery Info</h2>
+        <input type="button" value="Same As Delivery" id="sameAsDelivery"><br>
+        <input type="text" id="nameBill" placeholder="Name (First, Last)">
+
+        <select name="addressType" id="addressTypeBill">
+            <option value="" id="selectAddressOptionBill">Select An Option</option>
+            <option value="House" id="houseOptionBill">House</option>
+            <option value="Apartment" id="aptOptionBill">Apartment</option>
+            <option value="Business" id="businessOptionBill">Business</option>
+            <option value="Campus" id="campusOptionBill">Campus</option>
+            <option value="Hotel" id="hotelOptionBill">Hotel</option>
+            <option value="Dorm" id="dormOptionBill">Dorm</option>
+            <option value="Other" id="otherOptionBill">Other</option>
+        </select>
+
+        <input type="text" id="otherOptionTextBill" placeholder="Other">
+
+        <input type="text" id="streetAddressOrderBill" placeholder="Street Address">
+
+        <input type="text" id="addressNumberOrderBill" placeholder="Apt/Suite/Room">
+
+        <input type="text" id="cityAddressOrderBill" placeholder="City">
+
+        <input type="text" id="stateAddressOrderBill" placeholder="State">
+
+        <input type="text" id="zipAddressOrderBill" placeholder="Zip Code">
+
+        <input type="text" id="phoneAddressOrderBill" placeholder="Phone Number">
+
+        <input type="text" id="emailAddressOrderBill" placeholder="Email">
+        
+        <input type="text" id="cardNum" placeholder="Card Number">
+        <p id="cardError"></p><p id="cardType"></p>
+        
+        <input type="text" id="cvc" placeholder="CVC">
+        
+        <select name="month" id="month">
+            <option value=""></option>
+        </select>
+        <select name="year" id="year">
+            <option value=""></option>
+        </select>
+        
+        <input type="button" value="Place Order" id="placeOrderBtn">
+    </form>
+    
+</body>
+</html>
