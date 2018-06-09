@@ -9,7 +9,7 @@
     <script src="js/cardForm.js"></script>
 </head>
 <body>
-   <header></header>
+   <header><h1>The Pizza Place</h1></header>
     <form action="" id="deliveryOrderForm">
         <h2>Delivery Info</h2>
         <input type="text" id="nameOrder" placeholder="Name (First, Last)">
@@ -45,8 +45,26 @@
     </form><br>
     
     
+    <section id="displayOrder">
+      <h4>Crust Price:</h4>
+       <section id="crust"></section><br>
+       
+       <h4>Cheese Price:</h4>
+       <section id="cheese"></section><br>
+       
+       <h4>Sauce Price:</h4>
+       <section id="sauce"></section><br>
+       
+       <h4>Toppings Price:</h4>
+       <section id="toppings"></section>
+       <section id="totalOrder"></section><br><br>
+       
+       <input type="button" value="Next" id="next">
+    </section>
+    
+    
     <form action="" id="pizzaOrderForm">
-        Choose Your Crust: <br>
+        <h3>Choose Your Crust</h3>
         <input type="radio" name="crust" id="handTossed"> Hand Tossed <br>
         <select name="handTossedOptions" id="handTossedOptions"></select><br><br>
         
@@ -59,22 +77,19 @@
         <input type="radio" name="crust" id="glutenFree"> Gluten Free <br>
         <select name="glutenFreeStyleOption" id="glutenFreeStyleOption"></select><br><br><br>
         
-        Choose Your Cheese: <br>
+        <h3>Choose Your Cheese</h3>
         <select name="cheeseOptions" id="cheeseOptions"></select><br><br>
         
-        Choose Your Sauce: <br>
+        <h3>Choose Your Sauce</h3>
         <select name="sauceOptions" id="sauceOptions"></select><br><br>
         
-        Choose Your Toppings <br>
+        <h3>Choose Your Toppings</h3>
         <fieldset id="toppingOptions"></fieldset>
     </form><br>
     
-    <section id="displayOrder">
-        <section id="totalOrder"></section>
-    </section>
     
     <form action="" id="billingOrderForm">
-        <h2>Delivery Info</h2>
+        <h2>Billing Info</h2>
         <input type="button" value="Same As Delivery" id="sameAsDelivery"><br>
         <input type="text" id="nameBill" placeholder="Name (First, Last)">
 
@@ -105,6 +120,7 @@
 
         <input type="text" id="emailAddressOrderBill" placeholder="Email">
         
+        <h4>Card Info</h4>
         <input type="text" id="cardNum" placeholder="Card Number">
         <p id="cardError"></p><p id="cardType"></p>
         

@@ -31,8 +31,8 @@ var handTossed = {
     },
     toppings = {
         topping: 0.99
-    },
-    orderTotalArray = [];
+    };
+    //orderTotalArray = [];
 
 
 //LOAD
@@ -55,7 +55,7 @@ window.addEventListener("load", function () {
         var option1 = window.document.createElement("option");
         option1.setAttribute("id", "handTossedSmall");
         option1.setAttribute("value", handTossed.small);
-        option1.innerHTML = "Hand Tossed Small: $9.99";
+        option1.innerHTML = "Hand Tossed Small";
 
         $("handTossedOptions").appendChild(option1);
         window.console.log(option1);
@@ -64,7 +64,7 @@ window.addEventListener("load", function () {
         var option2 = window.document.createElement("option");
         option2.setAttribute("id", "handTossedMedium");
         option2.setAttribute("value", handTossed.medium);
-        option2.innerHTML = "Hand Tossed Medium: $12.99";
+        option2.innerHTML = "Hand Tossed Medium";
 
         $("handTossedOptions").appendChild(option2);
         window.console.log(option2);
@@ -73,7 +73,7 @@ window.addEventListener("load", function () {
         var option3 = window.document.createElement("option");
         option3.setAttribute("id", "handTossedLarge");
         option3.setAttribute("value", handTossed.large);
-        option3.innerHTML = "Hand Tossed Medium: $14.99";
+        option3.innerHTML = "Hand Tossed Large";
 
         $("handTossedOptions").appendChild(option3);
         window.console.log(option3);
@@ -82,7 +82,7 @@ window.addEventListener("load", function () {
         var option4 = window.document.createElement("option");
         option4.setAttribute("id", "thinCrustMedium");
         option4.setAttribute("value", thinCrust.medium);
-        option4.innerHTML = "Thin Crust Medium: $11.99";
+        option4.innerHTML = "Thin Crust Medium";
 
         $("thinCrustOptions").appendChild(option4);
         window.console.log(option4);
@@ -91,7 +91,7 @@ window.addEventListener("load", function () {
         var option5 = window.document.createElement("option");
         option5.setAttribute("id", "thinCrustLarge");
         option5.setAttribute("value", thinCrust.large);
-        option5.innerHTML = "Thin Crust Large: $13.99";
+        option5.innerHTML = "Thin Crust Large";
 
         $("thinCrustOptions").appendChild(option5);
         window.console.log(option5);
@@ -100,7 +100,7 @@ window.addEventListener("load", function () {
         var option6 = window.document.createElement("option");
         option6.setAttribute("id", "nyStyleLarge");
         option6.setAttribute("value", nyStyle.large);
-        option6.innerHTML = "New York Style Large: $16.99";
+        option6.innerHTML = "New York Style Large";
 
         $("nyStyleOptions").appendChild(option6);
         window.console.log(option6);
@@ -109,7 +109,7 @@ window.addEventListener("load", function () {
         var option7 = window.document.createElement("option");
         option7.setAttribute("id", "nyStyleExLarge");
         option7.setAttribute("value", nyStyle.exlarge);
-        option7.innerHTML = "New York Style Ex Large: $19.99";
+        option7.innerHTML = "New York Style Ex Large";
 
         $("nyStyleOptions").appendChild(option7);
         window.console.log(option7);
@@ -118,7 +118,7 @@ window.addEventListener("load", function () {
         var option8 = window.document.createElement("option");
         option8.setAttribute("id", "glutenFreeSmall");
         option8.setAttribute("value", glutenFree.small);
-        option8.innerHTML = "Gluten Free Small: $10.99";
+        option8.innerHTML = "Gluten Free Small";
 
         $("glutenFreeStyleOption").appendChild(option8);
         window.console.log(option8);
@@ -174,7 +174,7 @@ window.addEventListener("load", function () {
         var option2 = window.document.createElement("option");
         option2.setAttribute("id", "heartyTomato");
         option2.setAttribute("value", sauce.heartyTomato);
-        option2.innerHTML = "Hearty Tomato: $0.99";
+        option2.innerHTML = "Hearty Tomato";
 
         $("sauceOptions").appendChild(option2);
         window.console.log(option2);
@@ -336,11 +336,23 @@ window.addEventListener("load", function () {
     cheeseOptions();
     sauceOptions();
     toppingOptions();
-    
+
 
 //EVENT LISTENER(S)
+        
+    $("buildYourOrderBtn").addEventListener("click", function () {
+        $("handTossed").checked = true;
+        $("pepperoni").setAttribute("checked", "true");
+
+        $("crust").innerHTML = handTossed.small;
+        $("cheese").innerHTML = $("cheeseOptions").value;
+        $("sauce").innerHTML = $("sauceOptions").value;
+        $("toppings").innerHTML = toppings.topping;
+    });
     
-    $("pizzaOrderForm").addEventListener("change", function (e) {
+    
+    $("pizzaOrderForm").addEventListener("click", function (e) {
+        
         var target = e.target;
         if (target === $("handTossed")) {
             $("handTossedOptions").style.display = "block";
@@ -348,45 +360,85 @@ window.addEventListener("load", function () {
             $("nyStyleOptions").style.display = "none";
             $("glutenFreeStyleOption").style.display = "none";
             
-            window.console.log($("handTossedOptions").value);
-            $("handTossedOptions").addEventListener("change", function () {
-                window.console.log($("handTossedOptions").value);
-                if ($("handTossedOptions").value === handTossed.small) {
-                    window.console.log("hi");
-                }
-                
-                /*if ($("handTossedOptions").value === handTossed.small) {
-                    orderTotalArray.push(handTossed.small);
-                } else if ($("handTossedOptions").value === handTossed.medium) {
-                    orderTotalArray.push(handTossed.medium);
-                } else if ($("handTossedOptions").value === handTossed.large) {
-                    orderTotalArray.push(handTossed.large);
-                }*/
-            });
-            
-            //orderTotalArray[0] = handTossed.small;
-            //orderTotalArray[1] = handTossed.medium;
-            //window.console.log(orderTotalArray);
+            $("crust").innerHTML = handTossed.small;
             
         } else if (target === $("thinCrust")) {
             $("handTossedOptions").style.display = "none";
             $("thinCrustOptions").style.display = "block";
             $("nyStyleOptions").style.display = "none";
             $("glutenFreeStyleOption").style.display = "none";
+            
+            $("crust").innerHTML = thinCrust.medium;
+            
         } else if (target === $("nyStyle")) {
             $("handTossedOptions").style.display = "none";
             $("thinCrustOptions").style.display = "none";
             $("nyStyleOptions").style.display = "block";
             $("glutenFreeStyleOption").style.display = "none";
+            
+            $("crust").innerHTML = nyStyle.large;
+            
         } else if (target === $("glutenFree")) {
             $("handTossedOptions").style.display = "none";
             $("thinCrustOptions").style.display = "none";
             $("nyStyleOptions").style.display = "none";
             $("glutenFreeStyleOption").style.display = "block";
+            
+            $("crust").innerHTML = glutenFree.small;
         }
     });
     
+    $("handTossedOptions").addEventListener("change", function () {
+        $("crust").innerHTML = $("handTossedOptions").value;
+    });
+    
+    $("thinCrustOptions").addEventListener("change", function () {
+        $("crust").innerHTML = $("thinCrustOptions").value; 
+    });
+    
+    $("nyStyleOptions").addEventListener("change", function () {
+        $("crust").innerHTML = $("nyStyleOptions").value; 
+    });
+    $("glutenFreeStyleOption").addEventListener("change", function () {
+        $("crust").innerHTML = $("glutenFreeStyleOption").value; 
+    });
 
+    $("cheeseOptions").addEventListener("change", function () {
+         $("cheese").innerHTML = $("cheeseOptions").value;
+    });
+    
+    $("sauceOptions").addEventListener("change", function () {
+         $("sauce").innerHTML = $("sauceOptions").value;
+    });
+    
+    $("toppingOptions").addEventListener("change", function (e) {
+        var toppingsArray = [];
+        toppingsArray.push(e.target.value);
+        /*if (e.target === $("pepperoni")) {
+            toppingsArray.push(e.target.value);
+        } else if (e.target === $("sausage")) {
+            toppingsArray.push(e.target.value);
+        }
+        
+        $("toppings").innerHTML = eval(toppingsArray);*/
+        
+        window.console.log(toppingsArray);
+        
+        
+        /*if (target === $("pepperoni")) {
+            $("toppings").innerHTML += toppings.topping;
+            $("toppingsSelect").innerHTML += $("pepperoniText").innerHTML;
+        }
+        if (target === $("sausage")) {
+            $("toppings").innerHTML += toppings.topping;
+            $("toppingsSelect").innerHTML += $("sausageText").innerHTML;
+        }*/
+        
+        
+    });
+    
+
+    
     
     
 });

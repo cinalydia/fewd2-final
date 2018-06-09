@@ -1,13 +1,29 @@
-body {
+html {
+    font-family: sans-serif;
+    font-weight: lighter;
+    font-size: .95em;
+}
+body {margin: 0 auto;}
+form {
     width: 70vw;
-    margin: 0 auto
+    margin: 0 auto;
 }
 header {
-    background: url(/images/pizza.jpg) no-repeat top;
+    background: url(/images/pizza.jpg) no-repeat center;
     background-size: cover;
+    background-attachment: fixed;
     height: 50vh;
 }
-h2 {text-align: center;}
+header h1 {
+    position: absolute;
+    text-align: center;
+    color: #fff;
+    top: 38vh;
+    background: #000;
+    padding: .5em;
+    width: 94.7vw;
+}
+h2 {text-align: left;}
 input {
     display: flex;
     width: 100%;
@@ -15,14 +31,35 @@ input {
     margin-bottom: 1em;
 }
 #displayOrder {
-    height: 20vh;
-    width: 20vw;
-    background: #eee;
+    width: 30vw;
+    background: #ccc;
+    position: absolute;
+    right: 11vw;
+    padding: 1em;
+    margin-top: 10vh;
 }
 #pizzaOrderForm input {
-    display: flex;
-    width: 1vw;
+    float: left;
+    width: 3vw;
+    margin-right: 1em;
+    cursor: pointer;
 }
-#pizzaOrderForm input p {
-    
+#pizzaOrderForm p {
+    margin: 0;
+    padding-bottom: 1em;
+}
+fieldset {border: none;}
+input[type="button"] {
+    width: 30vw;
+    border: none;
+    padding: 2em;
+    background: #eee;
+    cursor: pointer;
+}
+select {
+    padding: 1em;
+    border: none;
+    background: #eee;
+    cursor: pointer;
+    font-size: .8em;
 }
