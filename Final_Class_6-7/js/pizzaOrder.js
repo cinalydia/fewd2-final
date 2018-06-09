@@ -337,18 +337,37 @@ window.addEventListener("load", function () {
     sauceOptions();
     toppingOptions();
 
+    function getSum(total, num) {
+        return total + num;
+    }
 
 //EVENT LISTENER(S)
         
     $("buildYourOrderBtn").addEventListener("click", function () {
         $("handTossed").checked = true;
         $("pepperoni").setAttribute("checked", "true");
+        $("handTossedOptions").style.display = "block";
 
         $("crust").innerHTML = handTossed.small;
+        subTotalArray[0] = parseFloat($("crust").innerHTML);
+        
         $("cheese").innerHTML = $("cheeseOptions").value;
+        subTotalArray[1] = parseFloat($("cheese").innerHTML);
+        
         $("sauce").innerHTML = $("sauceOptions").value;
+        subTotalArray[2] = parseFloat($("sauce").innerHTML);
+        
         $("toppings").innerHTML = toppings.topping;
+        subTotalArray[3] = parseFloat($("toppings").innerHTML);
+        
+        //window.console.log(eval(subTotalArray.join("+")));
+        //$("totalOrder").innerHTML = eval(subTotalArray.join("+"));
+        
+        window.console.log(subTotalArray.reduce(getSum));
+        $("totalOrder").innerHTML = subTotalArray.reduce(getSum);
     });
+    
+    var subTotalArray = [];
     
     
     $("pizzaOrderForm").addEventListener("click", function (e) {
@@ -361,6 +380,12 @@ window.addEventListener("load", function () {
             $("glutenFreeStyleOption").style.display = "none";
             
             $("crust").innerHTML = handTossed.small;
+            subTotalArray[0] = parseFloat($("crust").innerHTML);
+            //$("totalOrder").innerHTML = eval(subTotalArray.join("+"));
+            
+            $("totalOrder").innerHTML = subTotalArray.reduce(getSum);
+            
+            window.console.log(subTotalArray.reduce(getSum));
             
         } else if (target === $("thinCrust")) {
             $("handTossedOptions").style.display = "none";
@@ -369,6 +394,12 @@ window.addEventListener("load", function () {
             $("glutenFreeStyleOption").style.display = "none";
             
             $("crust").innerHTML = thinCrust.medium;
+            subTotalArray[0] = parseFloat($("crust").innerHTML);
+            //$("totalOrder").innerHTML = eval(subTotalArray.join("+"));
+            
+            $("totalOrder").innerHTML = subTotalArray.reduce(getSum);
+            
+            window.console.log(subTotalArray.reduce(getSum));
             
         } else if (target === $("nyStyle")) {
             $("handTossedOptions").style.display = "none";
@@ -377,6 +408,12 @@ window.addEventListener("load", function () {
             $("glutenFreeStyleOption").style.display = "none";
             
             $("crust").innerHTML = nyStyle.large;
+            subTotalArray[0] = parseFloat($("crust").innerHTML);
+            //$("totalOrder").innerHTML = eval(subTotalArray.join("+"));
+            
+            $("totalOrder").innerHTML = subTotalArray.reduce(getSum);
+            
+            window.console.log(subTotalArray.reduce(getSum));
             
         } else if (target === $("glutenFree")) {
             $("handTossedOptions").style.display = "none";
@@ -385,30 +422,73 @@ window.addEventListener("load", function () {
             $("glutenFreeStyleOption").style.display = "block";
             
             $("crust").innerHTML = glutenFree.small;
+            subTotalArray[0] = parseFloat($("crust").innerHTML);
+            //$("totalOrder").innerHTML = eval(subTotalArray.join("+"));
+            
+            $("totalOrder").innerHTML = subTotalArray.reduce(getSum);
+            
+            window.console.log(subTotalArray.reduce(getSum));
         }
     });
     
     $("handTossedOptions").addEventListener("change", function () {
         $("crust").innerHTML = $("handTossedOptions").value;
+        subTotalArray[0] = parseFloat($("crust").innerHTML);
+        //$("totalOrder").innerHTML = eval(subTotalArray.join("+"));
+        
+        $("totalOrder").innerHTML = subTotalArray.reduce(getSum);
+        
+        window.console.log(subTotalArray.reduce(getSum));
     });
     
     $("thinCrustOptions").addEventListener("change", function () {
-        $("crust").innerHTML = $("thinCrustOptions").value; 
+        $("crust").innerHTML = $("thinCrustOptions").value;
+        subTotalArray[0] = parseFloat($("crust").innerHTML);
+        //$("totalOrder").innerHTML = eval(subTotalArray.join("+"));
+        
+        $("totalOrder").innerHTML = subTotalArray.reduce(getSum);
+        
+        window.console.log(subTotalArray.reduce(getSum));
     });
     
     $("nyStyleOptions").addEventListener("change", function () {
-        $("crust").innerHTML = $("nyStyleOptions").value; 
+        $("crust").innerHTML = $("nyStyleOptions").value;
+        subTotalArray[0] = parseFloat($("crust").innerHTML);
+        //$("totalOrder").innerHTML = eval(subTotalArray.join("+"));
+        
+        $("totalOrder").innerHTML = subTotalArray.reduce(getSum);
+        
+        window.console.log(subTotalArray.reduce(getSum));
     });
     $("glutenFreeStyleOption").addEventListener("change", function () {
-        $("crust").innerHTML = $("glutenFreeStyleOption").value; 
+        $("crust").innerHTML = $("glutenFreeStyleOption").value;
+        subTotalArray[0] = parseFloat($("crust").innerHTML);
+        //$("totalOrder").innerHTML = eval(subTotalArray.join("+"));
+        
+        $("totalOrder").innerHTML = subTotalArray.reduce(getSum);
+        
+        window.console.log(subTotalArray.reduce(getSum));
     });
 
     $("cheeseOptions").addEventListener("change", function () {
-         $("cheese").innerHTML = $("cheeseOptions").value;
+        $("cheese").innerHTML = $("cheeseOptions").value;
+        subTotalArray[1] = parseFloat($("cheese").innerHTML);
+        //$("totalOrder").innerHTML = eval(subTotalArray.join("+"));
+        
+        $("totalOrder").innerHTML = subTotalArray.reduce(getSum);
+        
+        window.console.log(subTotalArray.reduce(getSum));
+        
     });
     
     $("sauceOptions").addEventListener("change", function () {
-         $("sauce").innerHTML = $("sauceOptions").value;
+        $("sauce").innerHTML = $("sauceOptions").value;
+        subTotalArray[2] = parseFloat($("sauce").innerHTML);
+        //$("totalOrder").innerHTML = eval(subTotalArray.join("+"));
+        
+        $("totalOrder").innerHTML = subTotalArray.reduce(getSum);
+        
+        window.console.log(subTotalArray.reduce(getSum));
     });
     
     $("toppingOptions").addEventListener("change", function (e) {
@@ -438,6 +518,13 @@ window.addEventListener("load", function () {
     });
     
 
+    
+    
+    
+
+    
+    
+    
     
     
     
