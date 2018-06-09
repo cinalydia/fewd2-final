@@ -359,11 +359,6 @@ window.addEventListener("load", function () {
         
         $("toppings").innerHTML = toppings.topping;
         subTotalArray[3] = parseFloat($("toppings").innerHTML);
-        
-        //window.console.log(eval(subTotalArray.join("+")));
-        //$("totalOrder").innerHTML = eval(subTotalArray.join("+"));
-        
-        window.console.log(subTotalArray.reduce(getSum));
         $("totalOrder").innerHTML = subTotalArray.reduce(getSum).toFixed(2);
     });
     
@@ -380,14 +375,9 @@ window.addEventListener("load", function () {
             $("glutenFreeStyleOption").style.display = "none";
             
             $("crust").innerHTML = handTossed.small;
-            
-            //$("crust").innerHTML = $("handTossedOptions").value;
             subTotalArray[0] = parseFloat($("crust").innerHTML);
-            //$("totalOrder").innerHTML = eval(subTotalArray.join("+"));
             
             $("totalOrder").innerHTML = subTotalArray.reduce(getSum).toFixed(2);
-            
-            window.console.log(subTotalArray.reduce(getSum));
             
         } else if (target === $("thinCrust")) {
             $("handTossedOptions").style.display = "none";
@@ -396,14 +386,9 @@ window.addEventListener("load", function () {
             $("glutenFreeStyleOption").style.display = "none";
             
             $("crust").innerHTML = thinCrust.medium;
-            
-            //$("crust").innerHTML = $("handTossedOptions").value;
             subTotalArray[0] = parseFloat($("crust").innerHTML);
-            //$("totalOrder").innerHTML = eval(subTotalArray.join("+"));
             
             $("totalOrder").innerHTML = subTotalArray.reduce(getSum).toFixed(2);
-            
-            window.console.log(subTotalArray.reduce(getSum));
             
         } else if (target === $("nyStyle")) {
             $("handTossedOptions").style.display = "none";
@@ -412,14 +397,9 @@ window.addEventListener("load", function () {
             $("glutenFreeStyleOption").style.display = "none";
             
             $("crust").innerHTML = nyStyle.large;
-            
-            //$("crust").innerHTML = $("handTossedOptions").value;
             subTotalArray[0] = parseFloat($("crust").innerHTML);
-            //$("totalOrder").innerHTML = eval(subTotalArray.join("+"));
             
             $("totalOrder").innerHTML = subTotalArray.reduce(getSum).toFixed(2);
-            
-            window.console.log(subTotalArray.reduce(getSum));
             
         } else if (target === $("glutenFree")) {
             $("handTossedOptions").style.display = "none";
@@ -428,63 +408,52 @@ window.addEventListener("load", function () {
             $("glutenFreeStyleOption").style.display = "block";
             
             $("crust").innerHTML = glutenFree.small;
-            
-            //$("crust").innerHTML = $("handTossedOptions").value;
             subTotalArray[0] = parseFloat($("crust").innerHTML);
-            //$("totalOrder").innerHTML = eval(subTotalArray.join("+"));
             
             $("totalOrder").innerHTML = subTotalArray.reduce(getSum).toFixed(2);
-            
-            window.console.log(subTotalArray.reduce(getSum));
         }
     });
     
     $("handTossedOptions").addEventListener("change", function () {
         $("crust").innerHTML = $("handTossedOptions").value;
         subTotalArray[0] = parseFloat($("crust").innerHTML);
-        //$("totalOrder").innerHTML = eval(subTotalArray.join("+"));
         
-        $("totalOrder").innerHTML = subTotalArray.reduce(getSum).toFixed(2); window.console.log(subTotalArray.reduce(getSum));
+        $("totalOrder").innerHTML = subTotalArray.reduce(getSum).toFixed(2);
     });
     
     $("thinCrustOptions").addEventListener("change", function () {
         $("crust").innerHTML = $("thinCrustOptions").value;
         subTotalArray[0] = parseFloat($("crust").innerHTML);
-        //$("totalOrder").innerHTML = eval(subTotalArray.join("+"));
         
-        $("totalOrder").innerHTML = subTotalArray.reduce(getSum).toFixed(2); window.console.log(subTotalArray.reduce(getSum));
+        $("totalOrder").innerHTML = subTotalArray.reduce(getSum).toFixed(2);
     });
     
     $("nyStyleOptions").addEventListener("change", function () {
         $("crust").innerHTML = $("nyStyleOptions").value;
         subTotalArray[0] = parseFloat($("crust").innerHTML);
-        //$("totalOrder").innerHTML = eval(subTotalArray.join("+"));
         
-        $("totalOrder").innerHTML = subTotalArray.reduce(getSum).toFixed(2); window.console.log(subTotalArray.reduce(getSum));
+        $("totalOrder").innerHTML = subTotalArray.reduce(getSum).toFixed(2);
     });
     $("glutenFreeStyleOption").addEventListener("change", function () {
         $("crust").innerHTML = $("glutenFreeStyleOption").value;
         subTotalArray[0] = parseFloat($("crust").innerHTML);
-        //$("totalOrder").innerHTML = eval(subTotalArray.join("+"));
         
-        $("totalOrder").innerHTML = subTotalArray.reduce(getSum).toFixed(2); window.console.log(subTotalArray.reduce(getSum));
+        $("totalOrder").innerHTML = subTotalArray.reduce(getSum).toFixed(2);
     });
 
     $("cheeseOptions").addEventListener("change", function () {
         $("cheese").innerHTML = $("cheeseOptions").value;
         subTotalArray[1] = parseFloat($("cheese").innerHTML);
-        //$("totalOrder").innerHTML = eval(subTotalArray.join("+"));
         
-        $("totalOrder").innerHTML = subTotalArray.reduce(getSum).toFixed(2); window.console.log(subTotalArray.reduce(getSum));
+        $("totalOrder").innerHTML = subTotalArray.reduce(getSum).toFixed(2);
         
     });
     
     $("sauceOptions").addEventListener("change", function () {
         $("sauce").innerHTML = $("sauceOptions").value;
         subTotalArray[2] = parseFloat($("sauce").innerHTML);
-        //$("totalOrder").innerHTML = eval(subTotalArray.join("+"));
         
-        $("totalOrder").innerHTML = subTotalArray.reduce(getSum).toFixed(2); window.console.log(subTotalArray.reduce(getSum));
+        $("totalOrder").innerHTML = subTotalArray.reduce(getSum).toFixed(2);
     });
     
     $("toppingOptions").addEventListener("click", function (e) {
@@ -497,47 +466,5 @@ window.addEventListener("load", function () {
             subTotalArray.pop(e.target.value);
             $("totalOrder").innerHTML = subTotalArray.reduce(getSum).toFixed(2);
         }
-        
-        
-        //subTotalArray[3] = e.target.value;
-        
-        //window.console.log(subTotalArray);
-        window.console.log(subTotalArray.reduce(getSum).toFixed(2));
     });
-    
-
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
 });
-
-
-
-/*var toppingsArray = [];
-        toppingsArray.push(e.target.value);
-        /*if (e.target === $("pepperoni")) {
-            toppingsArray.push(e.target.value);
-        } else if (e.target === $("sausage")) {
-            toppingsArray.push(e.target.value);
-        }
-        
-        $("toppings").innerHTML = eval(toppingsArray);
-        
-        window.console.log(toppingsArray);
-        
-        
-        if (target === $("pepperoni")) {
-            $("toppings").innerHTML += toppings.topping;
-            $("toppingsSelect").innerHTML += $("pepperoniText").innerHTML;
-        }
-        if (target === $("sausage")) {
-            $("toppings").innerHTML += toppings.topping;
-            $("toppingsSelect").innerHTML += $("sausageText").innerHTML;
-        }*/
