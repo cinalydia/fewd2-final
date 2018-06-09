@@ -364,7 +364,7 @@ window.addEventListener("load", function () {
         //$("totalOrder").innerHTML = eval(subTotalArray.join("+"));
         
         window.console.log(subTotalArray.reduce(getSum));
-        $("totalOrder").innerHTML = subTotalArray.reduce(getSum);
+        $("totalOrder").innerHTML = subTotalArray.reduce(getSum).toFixed(2);
     });
     
     var subTotalArray = [];
@@ -380,10 +380,12 @@ window.addEventListener("load", function () {
             $("glutenFreeStyleOption").style.display = "none";
             
             $("crust").innerHTML = handTossed.small;
+            
+            //$("crust").innerHTML = $("handTossedOptions").value;
             subTotalArray[0] = parseFloat($("crust").innerHTML);
             //$("totalOrder").innerHTML = eval(subTotalArray.join("+"));
             
-            $("totalOrder").innerHTML = subTotalArray.reduce(getSum);
+            $("totalOrder").innerHTML = subTotalArray.reduce(getSum).toFixed(2);
             
             window.console.log(subTotalArray.reduce(getSum));
             
@@ -394,10 +396,12 @@ window.addEventListener("load", function () {
             $("glutenFreeStyleOption").style.display = "none";
             
             $("crust").innerHTML = thinCrust.medium;
+            
+            //$("crust").innerHTML = $("handTossedOptions").value;
             subTotalArray[0] = parseFloat($("crust").innerHTML);
             //$("totalOrder").innerHTML = eval(subTotalArray.join("+"));
             
-            $("totalOrder").innerHTML = subTotalArray.reduce(getSum);
+            $("totalOrder").innerHTML = subTotalArray.reduce(getSum).toFixed(2);
             
             window.console.log(subTotalArray.reduce(getSum));
             
@@ -408,10 +412,12 @@ window.addEventListener("load", function () {
             $("glutenFreeStyleOption").style.display = "none";
             
             $("crust").innerHTML = nyStyle.large;
+            
+            //$("crust").innerHTML = $("handTossedOptions").value;
             subTotalArray[0] = parseFloat($("crust").innerHTML);
             //$("totalOrder").innerHTML = eval(subTotalArray.join("+"));
             
-            $("totalOrder").innerHTML = subTotalArray.reduce(getSum);
+            $("totalOrder").innerHTML = subTotalArray.reduce(getSum).toFixed(2);
             
             window.console.log(subTotalArray.reduce(getSum));
             
@@ -422,10 +428,12 @@ window.addEventListener("load", function () {
             $("glutenFreeStyleOption").style.display = "block";
             
             $("crust").innerHTML = glutenFree.small;
+            
+            //$("crust").innerHTML = $("handTossedOptions").value;
             subTotalArray[0] = parseFloat($("crust").innerHTML);
             //$("totalOrder").innerHTML = eval(subTotalArray.join("+"));
             
-            $("totalOrder").innerHTML = subTotalArray.reduce(getSum);
+            $("totalOrder").innerHTML = subTotalArray.reduce(getSum).toFixed(2);
             
             window.console.log(subTotalArray.reduce(getSum));
         }
@@ -436,9 +444,7 @@ window.addEventListener("load", function () {
         subTotalArray[0] = parseFloat($("crust").innerHTML);
         //$("totalOrder").innerHTML = eval(subTotalArray.join("+"));
         
-        $("totalOrder").innerHTML = subTotalArray.reduce(getSum);
-        
-        window.console.log(subTotalArray.reduce(getSum));
+        $("totalOrder").innerHTML = subTotalArray.reduce(getSum).toFixed(2); window.console.log(subTotalArray.reduce(getSum));
     });
     
     $("thinCrustOptions").addEventListener("change", function () {
@@ -446,9 +452,7 @@ window.addEventListener("load", function () {
         subTotalArray[0] = parseFloat($("crust").innerHTML);
         //$("totalOrder").innerHTML = eval(subTotalArray.join("+"));
         
-        $("totalOrder").innerHTML = subTotalArray.reduce(getSum);
-        
-        window.console.log(subTotalArray.reduce(getSum));
+        $("totalOrder").innerHTML = subTotalArray.reduce(getSum).toFixed(2); window.console.log(subTotalArray.reduce(getSum));
     });
     
     $("nyStyleOptions").addEventListener("change", function () {
@@ -456,18 +460,14 @@ window.addEventListener("load", function () {
         subTotalArray[0] = parseFloat($("crust").innerHTML);
         //$("totalOrder").innerHTML = eval(subTotalArray.join("+"));
         
-        $("totalOrder").innerHTML = subTotalArray.reduce(getSum);
-        
-        window.console.log(subTotalArray.reduce(getSum));
+        $("totalOrder").innerHTML = subTotalArray.reduce(getSum).toFixed(2); window.console.log(subTotalArray.reduce(getSum));
     });
     $("glutenFreeStyleOption").addEventListener("change", function () {
         $("crust").innerHTML = $("glutenFreeStyleOption").value;
         subTotalArray[0] = parseFloat($("crust").innerHTML);
         //$("totalOrder").innerHTML = eval(subTotalArray.join("+"));
         
-        $("totalOrder").innerHTML = subTotalArray.reduce(getSum);
-        
-        window.console.log(subTotalArray.reduce(getSum));
+        $("totalOrder").innerHTML = subTotalArray.reduce(getSum).toFixed(2); window.console.log(subTotalArray.reduce(getSum));
     });
 
     $("cheeseOptions").addEventListener("change", function () {
@@ -475,9 +475,7 @@ window.addEventListener("load", function () {
         subTotalArray[1] = parseFloat($("cheese").innerHTML);
         //$("totalOrder").innerHTML = eval(subTotalArray.join("+"));
         
-        $("totalOrder").innerHTML = subTotalArray.reduce(getSum);
-        
-        window.console.log(subTotalArray.reduce(getSum));
+        $("totalOrder").innerHTML = subTotalArray.reduce(getSum).toFixed(2); window.console.log(subTotalArray.reduce(getSum));
         
     });
     
@@ -486,35 +484,25 @@ window.addEventListener("load", function () {
         subTotalArray[2] = parseFloat($("sauce").innerHTML);
         //$("totalOrder").innerHTML = eval(subTotalArray.join("+"));
         
-        $("totalOrder").innerHTML = subTotalArray.reduce(getSum);
-        
-        window.console.log(subTotalArray.reduce(getSum));
+        $("totalOrder").innerHTML = subTotalArray.reduce(getSum).toFixed(2); window.console.log(subTotalArray.reduce(getSum));
     });
     
-    $("toppingOptions").addEventListener("change", function (e) {
-        var toppingsArray = [];
-        toppingsArray.push(e.target.value);
-        /*if (e.target === $("pepperoni")) {
-            toppingsArray.push(e.target.value);
-        } else if (e.target === $("sausage")) {
-            toppingsArray.push(e.target.value);
+    $("toppingOptions").addEventListener("click", function (e) {
+        var check = e.target.checked;
+        
+        if (check === true) {
+            subTotalArray.push(parseFloat(e.target.value));
+            $("totalOrder").innerHTML = subTotalArray.reduce(getSum).toFixed(2);
+        } else {
+            subTotalArray.pop(e.target.value);
+            $("totalOrder").innerHTML = subTotalArray.reduce(getSum).toFixed(2);
         }
         
-        $("toppings").innerHTML = eval(toppingsArray);*/
         
-        window.console.log(toppingsArray);
+        //subTotalArray[3] = e.target.value;
         
-        
-        /*if (target === $("pepperoni")) {
-            $("toppings").innerHTML += toppings.topping;
-            $("toppingsSelect").innerHTML += $("pepperoniText").innerHTML;
-        }
-        if (target === $("sausage")) {
-            $("toppings").innerHTML += toppings.topping;
-            $("toppingsSelect").innerHTML += $("sausageText").innerHTML;
-        }*/
-        
-        
+        //window.console.log(subTotalArray);
+        window.console.log(subTotalArray.reduce(getSum).toFixed(2));
     });
     
 
@@ -529,3 +517,27 @@ window.addEventListener("load", function () {
     
     
 });
+
+
+
+/*var toppingsArray = [];
+        toppingsArray.push(e.target.value);
+        /*if (e.target === $("pepperoni")) {
+            toppingsArray.push(e.target.value);
+        } else if (e.target === $("sausage")) {
+            toppingsArray.push(e.target.value);
+        }
+        
+        $("toppings").innerHTML = eval(toppingsArray);
+        
+        window.console.log(toppingsArray);
+        
+        
+        if (target === $("pepperoni")) {
+            $("toppings").innerHTML += toppings.topping;
+            $("toppingsSelect").innerHTML += $("pepperoniText").innerHTML;
+        }
+        if (target === $("sausage")) {
+            $("toppings").innerHTML += toppings.topping;
+            $("toppingsSelect").innerHTML += $("sausageText").innerHTML;
+        }*/
