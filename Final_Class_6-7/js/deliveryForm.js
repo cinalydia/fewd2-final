@@ -8,12 +8,16 @@ var $ = function (id) {
 window.addEventListener("load", function () {
     "use strict";
     
-    var deliveryInfoArray = [],
+//LOAD
+    $("otherOptionText").style.display = "none";
+    $("otherOptionTextBill").style.display = "none";
+    
+    /*var deliveryInfoArray = [],
         otherOptionArray = [],
         otherOptionSelected = $("otherOption").selected,
         otherOptionBillSelected = $("otherOptionBill").selected;
     $("otherOptionText").style.display = "none";
-    $("otherOptionTextBill").style.display = "none";
+    $("otherOptionTextBill").style.display = "none";*/
     
 //DELIVERY FORM VALUES
     
@@ -44,7 +48,7 @@ window.addEventListener("load", function () {
             deliveryInfoArray[7] = target.value;
             window.console.log(deliveryInfoArray);
         } 
-    });*/
+    });
     
     
     
@@ -142,18 +146,123 @@ $("sameAsDelivery").addEventListener("click", function () {
         $("otherOptionTextBill").style.display = "block";
     } else {
         $("otherOptionTextBill").style.display = "none";
-    }
+    }*/
+    
+    var deliveryInfoArray = [],
+        billingArray = [];
     
     
+    $("addressType").addEventListener("change", function (e) {
+        var target = e.target.value;
+        if (target === "Other") {
+            $("otherOptionText").style.display = "block";
+        } else {
+            $("otherOptionText").style.display = "none";
+            $("otherOptionText").value = "";
+        }
+        if (target === "House") {
+            deliveryInfoArray[1] = $("addressType").value;
+        } else if (target === "Apartment") {
+            deliveryInfoArray[1] = $("addressType").value;
+        } else if (target === "Business") {
+            deliveryInfoArray[1] = $("addressType").value;
+        } else if (target === "Campus") {
+            deliveryInfoArray[1] = $("addressType").value;
+        } else if (target === "Hotel") {
+            deliveryInfoArray[1] = $("addressType").value;
+        } else if (target === "Dorm") {
+            deliveryInfoArray[1] = $("addressType").value;
+        }
+    });
+    
+    $("deliveryOrderForm").addEventListener("change", function (e) {
+        var target = e.target;
+        
+        if (target === $("nameOrder")) {
+            deliveryInfoArray[0] = $("nameOrder").value;
+        } else if (target === $("streetAddressOrder")) {
+            deliveryInfoArray[2] = $("streetAddressOrder").value;
+        } else if (target === $("addressNumberOrder")) {
+            deliveryInfoArray[3] = $("addressNumberOrder").value;
+        } else if (target === $("cityAddressOrder")) {
+            deliveryInfoArray[4] = $("cityAddressOrder").value;
+        } else if (target === $("stateAddressOrder")) {
+            deliveryInfoArray[5] = $("stateAddressOrder").value;
+        } else if (target === $("zipAddressOrder")) {
+            deliveryInfoArray[6] = $("zipAddressOrder").value;
+        } else if (target === $("phoneAddressOrder")) {
+            deliveryInfoArray[7] = $("phoneAddressOrder").value;
+        } else if (target === $("emailAddressOrder")) {
+            deliveryInfoArray[8] = $("emailAddressOrder").value;
+        } else if (target === $("otherOptionText")) {
+            deliveryInfoArray[1] = $("otherOptionText").value;
+        }
+        
+        window.console.log(deliveryInfoArray);
+    });
     
     
+    $("sameAsDelivery").addEventListener("click", function () {
+        $("nameBill").value = deliveryInfoArray[0];
+        
+        $("streetAddressOrderBill").value = deliveryInfoArray[2];
+        
+        $("addressNumberOrderBill").value = deliveryInfoArray[3];
+        
+        $("cityAddressOrderBill").value = deliveryInfoArray[4];
+        
+        $("stateAddressOrderBill").value = deliveryInfoArray[5];
+        
+        $("zipAddressOrderBill").value = deliveryInfoArray[6];
+        
+        $("otherOptionBill").value = deliveryInfoArray[1];
+    });
+    
+    $("addressTypeBill").addEventListener("change", function (e) {
+        var target = e.target.value;
+        if (target === "Other") {
+            $("otherOptionTextBill").style.display = "block";
+        } else {
+            $("otherOptionTextBill").style.display = "none";
+            $("otherOptionTextBill").value = "";
+        }
+        if (target === "House") {
+            billingArray[1] = $("addressType").value;
+        } else if (target === "Apartment") {
+            billingArray[1] = $("addressType").value;
+        } else if (target === "Business") {
+            billingArray[1] = $("addressType").value;
+        } else if (target === "Campus") {
+            billingArray[1] = $("addressType").value;
+        } else if (target === "Hotel") {
+            billingArray[1] = $("addressType").value;
+        } else if (target === "Dorm") {
+            billingArray[1] = $("addressType").value;
+        }
+    });
     
     
-    
-    
-    
-    
-    
+    $("billingOrderForm").addEventListener("change", function (e) {
+        var target = e.target;
+        
+        if (target === $("nameBill")) {
+            billingArray[0] = $("nameBill").value;
+        } else if (target === $("streetAddressOrderBill")) {
+            billingArray[2] = $("streetAddressOrderBill").value;
+        } else if (target === $("addressNumberOrderBill")) {
+            billingArray[3] = $("addressNumberOrderBill").value;
+        } else if (target === $("cityAddressOrderBill")) {
+            billingArray[4] = $("cityAddressOrderBill").value;
+        } else if (target === $("stateAddressOrderBill")) {
+            billingArray[5] = $("stateAddressOrderBill").value;
+        } else if (target === $("zipAddressOrderBill")) {
+            billingArray[6] = $("zipAddressOrderBill").value;
+        } else if (target === $("otherOptionText")) {
+            billingArray[1] = $("otherOptionText").value;
+        }
+        
+        window.console.log(billingArray);
+    });
     
 });
 
